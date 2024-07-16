@@ -1,5 +1,7 @@
 from datetime import datetime
 import sys
+import argparse
+import os
 
 colors = {
     "blue": "\033[94m",
@@ -48,6 +50,18 @@ def write_array_to_file(array, filename):
             txt_file.write(line + "\n")
 
 
+# Command Line Arguments
+parser = argparse.ArgumentParser(prog='hashgen',
+                                 description='This script creates a custom wordlist for cracking hashes in company networks',
+                                 epilog='python3 passgen.py -c "SySS" -t Tuebingen -s "Schaffhausenstrasse 77" -o Pentest Cyber -H hashes.txt')
+parser.add_argument("-c", "--company", dest="The companies name")
+parser.add_argument("-t", "--town", dest="The town of the company")
+parser.add_argument("-s", "--street", dest="The street of the company")
+parser.add_argument("-o", "--other", nargs='*', dest="Other important keywords (Branch,...)")
+parser.add_argument("-l", "--level", type=int, default=2, dest="The level of verbosity of the wordlist (0-3)")
+parser.add_argument("-H", "--hashes", dest="The file containing the hashes (for auto-cracking)")
+args = parser.parse_args()
+
 
 print(colors["blue"] + ".__                  .__                           ")
 print(colors["blue"] + "|  |__ _____    _____|  |__   "+colors["green"]+"  ____   ____   ____  ")
@@ -59,13 +73,16 @@ print()
 print(colors["red"]+"generate custom wordlists for cracking hashes in company networks"+colors["no"])
 print()
 print()
-level = 3
-print("Name of the company:")
-company = input(colors["red"]+"> "+colors["no"])
-print("Town of the company:")
-town = input(colors["red"]+"> "+colors["no"])
-print("Street and No. of the company:")
-street_and_no = input(colors["red"]+"> "+colors["no"])
+level = args.level
+if ((company := args.company) is None):
+    print("Name of the company:")
+    company = input(colors["red"]+"> "+colors["no"])
+if ((town := args.town) is None):
+    print("Town of "+company+":")
+    town = input(colors["red"]+"> "+colors["no"])
+if ((street_and_no := args.street) is None):
+    print("Street and No. of "+company+":")
+    street_and_no = input(colors["red"]+"> "+colors["no"])
 street = street_and_no.split(" ")[0]
 if len(street_and_no.split(" "))>1:
     street_no = street_and_no.split(" ")[1]
@@ -75,6 +92,8 @@ else:
 # Custom Words
 print("Do you want to add other words to the base wordlist? Add each one by pressing Enter. Press Enter without any input to start generating the wordlist.")
 other_words = []
+other_words += args.other
+print(args.other)
 while (custom_word := input(colors["red"]+"> "+colors["no"])) != "":
     other_words.append(custom_word)
 
@@ -135,3 +154,8 @@ print()
 
 print("How to use it to crack different hashes:")
 print(colors["red"]+"NTLM "+colors["blue"]+"hashcat -m 1000 hashes.txt "+filename+" -r hashgen.rules")
+print(colors["red"]+"DCC2 "+colors["blue"]+"hashcat -m 2100 hashes.txt "+filename+" -r hashgen.rules"+colors["no"])
+
+if args.hashes is not None:
+    print(colors["red"]+"Cracking "+args.hashes+" automatically..."+colors["no"])
+    os.system('hashcat '+args.hashes+' '+filename+' -r hashgen.rules')
