@@ -54,12 +54,12 @@ def write_array_to_file(array, filename):
 parser = argparse.ArgumentParser(prog='hashgen',
                                  description='This script creates a custom wordlist for cracking hashes in company networks',
                                  epilog='python3 passgen.py -c "SySS" -t Tuebingen -s "Schaffhausenstrasse 77" -o Pentest Cyber -H hashes.txt')
-parser.add_argument("-c", "--company", dest="The companies name")
-parser.add_argument("-t", "--town", dest="The town of the company")
-parser.add_argument("-s", "--street", dest="The street of the company")
-parser.add_argument("-o", "--other", nargs='*', dest="Other important keywords (Branch,...)")
-parser.add_argument("-l", "--level", type=int, default=2, dest="The level of verbosity of the wordlist (0-3)")
-parser.add_argument("-H", "--hashes", dest="The file containing the hashes (for auto-cracking)")
+parser.add_argument("-c", "--company", help="The companies name")
+parser.add_argument("-t", "--town", help="The town of the company")
+parser.add_argument("-s", "--street", help="The street of the company")
+parser.add_argument("-o", "--other", nargs='*', help="Other important keywords (Branch,...)")
+parser.add_argument("-l", "--level", type=int, default=2, help="The level of verbosity of the wordlist (0-3)")
+parser.add_argument("-H", "--hashes", help="The file containing the hashes (for auto-cracking)")
 args = parser.parse_args()
 
 
