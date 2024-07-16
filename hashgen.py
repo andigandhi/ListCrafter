@@ -1,7 +1,7 @@
+#!/usr/bin/env python3
+
 from datetime import datetime
-import sys
-import argparse
-import os
+import sys, argparse, os
 
 colors = {
     "blue": "\033[94m",
