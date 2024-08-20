@@ -23,3 +23,21 @@ options:
   -l THE LEVEL OF VERBOSITY OF THE WORDLIST (0-3), --level THE LEVEL OF VERBOSITY OF THE WORDLIST (0-3)
   -H THE FILE CONTAINING THE HASHES (FOR AUTO-CRACKING), --hashes THE FILE CONTAINING THE HASHES (FOR AUTO-CRACKING)
 ```
+
+# Example Wordlist
+```
+# shuf -n 5 wordlist_GitHub_2024.wordlist
+
+GitHub23
+MICROSOFT
+Code2024
+sanfrancisco24
+GitHub.2024
+```
+
+# Roadmap
+☑️ Create basic wordlist
+☑️ Create hashcat ruleset
+⬜️ Add english language support
+⬜️ Extract information from WiFi?
+⬜️ ??
