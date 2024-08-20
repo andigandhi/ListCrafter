@@ -36,8 +36,8 @@ GitHub.2024
 ```
 
 # Roadmap
-☑️ Create basic wordlist
-☑️ Create hashcat ruleset
-⬜️ Add english language support
-⬜️ Extract information from WiFi?
-⬜️ ??
+- ☑️ Create basic wordlist
+- ☑️ Create hashcat ruleset
+- ⬜️ Add english language support
+- ⬜️ Extract information from WiFi?
+- ⬜️ ??
