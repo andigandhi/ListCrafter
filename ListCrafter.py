@@ -53,7 +53,7 @@ def write_array_to_file(array, filename):
 # Command Line Arguments
 parser = argparse.ArgumentParser(prog='ListCrafter',
                                  description='This script creates a custom wordlist for cracking hashes in company networks',
-                                 epilog='python3 passgen.py -c "SySS" -t Tuebingen -s "Schaffhausenstrasse 77" -o Pentest Cyber -H hashes.txt')
+                                 epilog='python3 ListCrafter.py -c "SySS" -t Tuebingen -s "Schaffhausenstrasse 77" -o Pentest Cyber -H hashes.txt')
 parser.add_argument("-c", "--company", help="The companies name")
 parser.add_argument("-t", "--town", help="The town of the company")
 parser.add_argument("-s", "--street", help="The street of the company")

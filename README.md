@@ -1,17 +1,15 @@
 ```
-.__                  .__                           
-|  |__ _____    _____|  |__     ____   ____   ____  
-|  |  \\__  \  /  ___/  |  \   / ___\_/ __ \ /    \ 
-|   Y  \/ __ \_\___ \|   Y  \ / /_/  >  ___/|   |  \ 
-|___|  (____  /____  >___|  / \___  / \___  >___|  /
-     \/     \/     \/     \// _____/      \/     \/
+ _    _    _    ___           __ _           
+| |  (_)__| |_ / __|_ _ __ _ / _| |_ ___ _ _ 
+| |__| (_-<  _| (__| '_/ _` |  _|  _/ -_) '_|
+|____|_/__/\__|\___|_| \__,_|_|  \__\___|_|  
 
 generate custom wordlists for cracking hashes in company networks
 ```
 
 # Usage
 ```
-usage: hashgen [-h] [-c THE COMPANIES NAME] [-t THE TOWN OF THE COMPANY] [-s THE STREET OF THE COMPANY] [-o [OTHER IMPORTANT KEYWORDS BRANCH,...) ...]] [-l THE LEVEL OF VERBOSITY OF THE WORDLIST (0-3)]
+usage: ListCrafter [-h] [-c THE COMPANIES NAME] [-t THE TOWN OF THE COMPANY] [-s THE STREET OF THE COMPANY] [-o [OTHER IMPORTANT KEYWORDS BRANCH,...) ...]] [-l THE LEVEL OF VERBOSITY OF THE WORDLIST (0-3)]
                [-H THE FILE CONTAINING THE HASHES (FOR AUTO-CRACKING]
 
 This script creates a custom wordlist for cracking hashes in company networks
