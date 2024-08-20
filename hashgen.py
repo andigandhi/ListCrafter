@@ -51,7 +51,7 @@ def write_array_to_file(array, filename):
 
 
 # Command Line Arguments
-parser = argparse.ArgumentParser(prog='hashgen',
+parser = argparse.ArgumentParser(prog='ListCrafter',
                                  description='This script creates a custom wordlist for cracking hashes in company networks',
                                  epilog='python3 passgen.py -c "SySS" -t Tuebingen -s "Schaffhausenstrasse 77" -o Pentest Cyber -H hashes.txt')
 parser.add_argument("-c", "--company", help="The companies name")
@@ -63,12 +63,10 @@ parser.add_argument("-H", "--hashes", help="The file containing the hashes (for 
 args = parser.parse_args()
 
 
-print(colors["blue"] + ".__                  .__                           ")
-print(colors["blue"] + "|  |__ _____    _____|  |__   "+colors["green"]+"  ____   ____   ____  ")
-print(colors["blue"] + "|  |  \\\\__  \  /  ___/  |  \ "+colors["green"]+"  / ___\_/ __ \ /    \ ")
-print(colors["blue"] + "|   Y  \/ __ \_\___ \|   Y  \ "+colors["green"]+"/ /_/  >  ___/|   |  \ ")
-print(colors["blue"] + "|___|  (____  /____  >___|  /"+colors["green"]+" \___  / \___  >___|  /")
-print(colors["blue"] + "     \/     \/     \/     \//"+colors["green"]+" _____/      \/     \/"+colors["no"])
+print(colors["blue"] + "  _    _    _   "+colors["green"]+" ___           __ _           ")
+print(colors["blue"] + " | |  (_)__| |_ "+colors["green"]+"/ __|_ _ __ _ / _| |_ ___ _ _ ")
+print(colors["blue"] + " | |__| (_-<  _|"+colors["green"]+" (__| '_/ _` |  _|  _/ -_) '_|")
+print(colors["blue"] + " |____|_/__/\__|"+colors["green"]+"\___|_| \__,_|_|  \__\___|_|  "+colors["no"])
 print()
 print(colors["red"]+"generate custom wordlists for cracking hashes in company networks"+colors["no"])
 print()
@@ -146,16 +144,16 @@ if level>1:
         "s.$", # Append $
         "s.;" # Append ;
     ]
-write_array_to_file(rules,"hashgen.rule")
+write_array_to_file(rules,"ListCrafter.rule")
 
 print("Generated wordlist has " + str(len(candidates)) + " entries and is " + str(sys.getsizeof(candidates) / 1024).split(".")[0] + " kB large.")
-print("Combined with the hashgen rules this creates " + str(len(candidates)*len(rules)) + " passwords.")
+print("Combined with the ListCrafter rules this creates " + str(len(candidates)*len(rules)) + " passwords.")
 print()
 
 print("How to use it to crack different hashes:")
-print(colors["red"]+"NTLM "+colors["blue"]+"hashcat -m 1000 hashes.txt "+filename+" -r hashgen.rules")
-print(colors["red"]+"DCC2 "+colors["blue"]+"hashcat -m 2100 hashes.txt "+filename+" -r hashgen.rules"+colors["no"])
+print(colors["red"]+"NTLM "+colors["blue"]+"hashcat -m 1000 hashes.txt "+filename+" -r ListCrafter.rules")
+print(colors["red"]+"DCC2 "+colors["blue"]+"hashcat -m 2100 hashes.txt "+filename+" -r ListCrafter.rules"+colors["no"])
 
 if args.hashes is not None:
     print(colors["red"]+"Cracking "+args.hashes+" automatically..."+colors["no"])
-    os.system('hashcat '+args.hashes+' '+filename+' -r hashgen.rules')
+    os.system('hashcat '+args.hashes+' '+filename+' -r ListCrafter.rules')
