@@ -88,12 +88,11 @@ else:
     street_no = ""
 
 # Custom Words
-print("Do you want to add other words to the base wordlist? Add each one by pressing Enter. Press Enter without any input to start generating the wordlist.")
-other_words = []
-other_words += args.other
-print(args.other)
-while (custom_word := input(colors["red"]+"> "+colors["no"])) != "":
-    other_words.append(custom_word)
+if ((other_words := args.other) is None):
+    other_words = []
+    print("Do you want to add other words to the base wordlist? Add each one by pressing Enter. Press Enter without any input to start generating the wordlist.")
+    while (custom_word := input(colors["red"]+"> "+colors["no"])) != "":
+        other_words.append(custom_word)
 
 # Year and Seasons
 year = datetime.now().year
