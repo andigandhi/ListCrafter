@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>ListCrafter - Create Custom Wordlists</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+</style>
+<script src="ListCrafter.js"></script>
+<body>
+<input id="txt_company" placeholder="Company"><br>
+<input id="txt_town" placeholder="Town"><br>
+<input id="txt_street" placeholder="Street"><br>
+<input id="txt_other" placeholder="Other Words"><br>
+<input type="range" id="list_depth" name="list_depth" min="0" max="5" value="1" step="1" onchange="computeSize()"/><br><br>
+<div id="div_length"></div>
+<button onclick="createWordlist()">Create Wordlist!</button><br>
+<textarea id="output_list"></textarea>
+</body>
+</html> 

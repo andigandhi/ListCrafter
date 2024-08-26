@@ -26,6 +26,26 @@ options:
 
 # Example Wordlist
 ```
+# ./ListCrafter.py -c GitHub -t SanFrancisco -s "Street 1337" -o Code Microsoft
+  _    _    _    ___           __ _           
+ | |  (_)__| |_ / __|_ _ __ _ / _| |_ ___ _ _ 
+ | |__| (_-<  _| (__| '_/ _` |  _|  _/ -_) '_|
+ |____|_/__/\__|\___|_| \__,_|_|  \__\___|_|  
+
+generate custom wordlists for cracking hashes in company networks
+
+
+Generating wordlist for GitHub based in SanFrancisco...
+
+Generated wordlist has 198 entries and is 1 kB large.
+Combined with the ListCrafter rules this creates 1386 passwords.
+
+How to use it to crack different hashes:
+NTLM hashcat -m 1000 hashes.txt wordlist_GitHub_2024.wordlist -r ListCrafter.rules
+DCC2 hashcat -m 2100 hashes.txt wordlist_GitHub_2024.wordlist -r ListCrafter.rules
+```
+
+```
 # shuf -n 5 wordlist_GitHub_2024.wordlist
 
 GitHub23
